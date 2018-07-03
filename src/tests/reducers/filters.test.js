@@ -1,8 +1,8 @@
 import moment from 'moment';
-import filtersReducers from '../../reducers/filters';
+import filtersReducer from '../../reducers/filters';
 
 test('should setup default filter values', () => {
-	const state = filtersReducers(undefined, { type: '@@INT' });
+	const state = filtersReducer(undefined, { type: '@@INT' });
 	expect(state).toEqual({
 		text: '',
 		sortBy: 'date',
@@ -17,12 +17,12 @@ test('should set text filter', () => {
 		type: 'SET_TEXT_FILTER',
 		text
 	};
-	const state = filtersReducers(undefined, action);
+	const state = filtersReducer(undefined, action);
 	expect(state.text).toBe('water');
 });
 
 test('should set sort by to amount', () => {
-	const state = filtersReducers(undefined, { type: 'SORT_BY_AMOUNT' });
+	const state = filtersReducer(undefined, { type: 'SORT_BY_AMOUNT' });
 	expect(state.sortBy).toBe('amount');
 });
 
@@ -34,7 +34,7 @@ test('should set sort by to date', () => {
 		sortBy: 'amount'
 	};
 	const action = { type: 'SORT_BY_DATE' };
-	const state = filtersReducers(currentState, action);
+	const state = filtersReducer(currentState, action);
 	expect(state.sortBy).toBe('date');
 });
 
@@ -44,7 +44,7 @@ test('should set start date', () => {
 		type: 'SET_START_DATE',
 		startDate
 	};
-	const state = filtersReducers(undefined, action);
+	const state = filtersReducer(undefined, action);
 	expect(state.startDate).toEqual(startDate);
 });
 
@@ -54,6 +54,6 @@ test('should set end date', () => {
 		type: 'SET_END_DATE',
 		endDate
 	};
-	const state = filtersReducers(undefined, action);
+	const state = filtersReducer(undefined, action);
 	expect(state.endDate).toEqual(endDate);
 });
