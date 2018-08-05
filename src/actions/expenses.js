@@ -16,7 +16,9 @@ export const startAddExpense = (expenseData = {}) => {
 			createdAt = 0
 		} = expenseData;
 		const expense = { description, note, amount, createdAt };
-		db.ref('expenses')
+		// Added return to extend the promise chain for testing purposes
+		return db
+			.ref('expenses')
 			.push(expense)
 			.then(ref => {
 				dispatch(
