@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
 import LoginPage from '../components/LoginPage';
 import Header from '../components/Header';
 import DashboardPage from '../components/DashboardPage';
@@ -8,8 +9,10 @@ import EditExpensePage from '../components/EditExpensePage';
 import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
 
+export const history = createHistory();
+
 const AppRouter = () => (
-	<Router>
+	<Router history={history}>
 		<div>
 			<Header />
 			<Switch>
