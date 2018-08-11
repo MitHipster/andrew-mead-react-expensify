@@ -1,0 +1,11 @@
+.show-for-mobile {
+	@include desktop {
+		display: none;
+	}
+}
+
+.show-for-desktop {
+	@include mobile {
+		display: none;
+	}
+}

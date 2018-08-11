@@ -1,11 +1,14 @@
 // Colors
-$gray: #888;
+$off-white: #f7f7f7;
+$light-gray: #888;
+$gray: #666;
 $dark-gray: #333;
 $blue: #1c88bf;
 $dark-blue: #364051;
 
 //Font Size
 $font-size-l: 1.8rem;
+$font-size-m: 1.4rem;
 
 // Spacing
 $s-size: 1.2rem;
@@ -19,6 +22,12 @@ $bp-desktop: 45rem;
 // Mixins
 @mixin desktop {
 	@media (min-width: #{$bp-desktop}) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: #{$bp-desktop - 0.01rem}) {
 		@content;
 	}
 }
